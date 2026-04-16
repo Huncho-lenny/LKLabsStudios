@@ -16,11 +16,12 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  useEffect(() => {
   const onScroll = useCallback(() => setScrolled(window.scrollY > 50), []);
+
+  useEffect(() => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [onScroll]);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";

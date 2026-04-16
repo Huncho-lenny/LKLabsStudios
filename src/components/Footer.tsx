@@ -11,9 +11,9 @@ const navLinks = [
 ];
 
 const socials = [
-  { icon: Globe, href: "https://github.com", label: "GitHub" },
+  { icon: Globe, href: "https://github.com/Huncho-lenny", label: "GitHub" },
   { icon: Globe, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Mail, href: "mailto:hello@lklabs.studio", label: "Email" },
+  { icon: Mail, href: "mailto:lennykimanthi1@gmail.com", label: "Email" },
 ];
 
 export function Footer() {
