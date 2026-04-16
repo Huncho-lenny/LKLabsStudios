@@ -2,9 +2,9 @@ import { render, screen } from '@testing-library/react'
 import App from '@/App'
 
 describe('App', () => {
-  it('renders bootstrap heading', () => {
+  it('renders the studio brand', () => {
     render(<App />)
 
-    expect(screen.getByRole('heading', { name: /project bootstrap is ready/i })).toBeInTheDocument()
+    expect(screen.getAllByRole('link', { name: /start a project/i }).length).toBeGreaterThan(0)
   })
 })
