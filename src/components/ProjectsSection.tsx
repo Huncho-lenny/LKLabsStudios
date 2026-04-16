@@ -3,6 +3,7 @@ import projectNova from "@/assets/project-nova.jpg";
 import projectAether from "@/assets/project-aether.jpg";
 import projectPulse from "@/assets/project-pulse.jpg";
 import projectCipher from "@/assets/project-cipher.jpg";
+import { Badge } from "@/components/ui/badge";
 
 const projects = [
   {
@@ -73,9 +74,7 @@ const ProjectsSection = () => (
               <p className="text-muted-foreground mb-4">{project.description}</p>
               <div className="flex gap-2 flex-wrap">
                 {project.tech.map((t) => (
-                  <span key={t} className="text-xs font-mono px-3 py-1 rounded-full bg-muted/50 text-muted-foreground">
-                    {t}
-                  </span>
+                  <Badge key={t}>{t}</Badge>
                 ))}
               </div>
             </div>

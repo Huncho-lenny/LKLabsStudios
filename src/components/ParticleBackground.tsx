@@ -1,6 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, memo } from "react";
 
-const ParticleBackground = () => {
+const ParticleBackground = memo(() => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -79,6 +79,8 @@ const ParticleBackground = () => {
   }, []);
 
   return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />;
-};
+});
+
+ParticleBackground.displayName = "ParticleBackground";
 
 export default ParticleBackground;

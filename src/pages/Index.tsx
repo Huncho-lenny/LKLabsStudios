@@ -1,18 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import ParticleBackground from "@/components/ParticleBackground";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import AboutSection from "@/components/AboutSection";
-import ServicesSection from "@/components/ServicesSection";
-import ProcessSection from "@/components/ProcessSection";
-import TechStackSection from "@/components/TechStackSection";
-import PricingSection from "@/components/PricingSection";
-import CodePoetrySection from "@/components/CodePoetrySection";
-import FAQSection from "@/components/FAQSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
+
+const ProjectsSection = lazy(() => import("@/components/ProjectsSection"));
+const AboutSection = lazy(() => import("@/components/AboutSection"));
+const ServicesSection = lazy(() => import("@/components/ServicesSection"));
+const ProcessSection = lazy(() => import("@/components/ProcessSection"));
+const TechStackSection = lazy(() => import("@/components/TechStackSection"));
+const PricingSection = lazy(() => import("@/components/PricingSection"));
+const CodePoetrySection = lazy(() => import("@/components/CodePoetrySection"));
+const FAQSection = lazy(() => import("@/components/FAQSection"));
+const ContactSection = lazy(() => import("@/components/ContactSection"));
+const Footer = lazy(() => import("@/components/Footer"));
 
 const Index = () => {
   const [loading, setLoading] = useState(true);
@@ -29,17 +30,21 @@ const Index = () => {
       <Navbar />
       <main className="relative z-10">
         <HeroSection />
-        <ProjectsSection />
-        <AboutSection />
-        <ServicesSection />
-        <TechStackSection />
-        <ProcessSection />
-        <CodePoetrySection />
-        <PricingSection />
-        <FAQSection />
-        <ContactSection />
+        <Suspense fallback={null}>
+          <ProjectsSection />
+          <AboutSection />
+          <ServicesSection />
+          <TechStackSection />
+          <ProcessSection />
+          <CodePoetrySection />
+          <PricingSection />
+          <FAQSection />
+          <ContactSection />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };
