@@ -1,8 +1,10 @@
 import { Toaster as SonnerToaster } from "sonner";
-import { useTheme } from "@/hooks/use-theme";
 
 export function Toaster() {
-  const { theme } = useTheme();
+  const theme =
+    typeof window !== "undefined"
+      ? ((localStorage.getItem("theme") ?? "dark") as "dark" | "light")
+      : "dark";
 
   return (
     <SonnerToaster
