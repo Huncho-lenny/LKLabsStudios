@@ -1,0 +1,17 @@
+{
+  "name": "LKLabs Studios",
+  "short_name": "LKLabs",
+  "description": "Building Brands, Designing Experiences",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0f1a",
+  "theme_color": "#9b5de5",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
