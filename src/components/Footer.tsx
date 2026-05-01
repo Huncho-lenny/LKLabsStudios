@@ -23,7 +23,7 @@ const linkedInPath = "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.03
 const socials = [
   { path: siInstagram.path, href: "https://www.instagram.com/yb.l3nn/", label: "Instagram" },
   { path: siWhatsapp.path, href: "https://wa.me/254708860046", label: "WhatsApp" },
-  { path: siTelegram.path, href: "https://web.telegram.org/k/", label: "Telegram" },
+  { path: siTelegram.path, href: "https://t.me/ybl3nn", label: "Telegram" },
   { path: siX.path, href: "https://x.com/KimanthiLenny", label: "X" },
   { path: siGithub.path, href: "https://github.com/Huncho-lenny", label: "GitHub" },
   { path: linkedInPath, href: "https://www.linkedin.com/in/Huncho-lenny", label: "LinkedIn" },
