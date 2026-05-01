@@ -11,8 +11,6 @@ const categories = [
 
 const plans: Record<string, Array<{
   name: string;
-  price: string;
-  unit: string;
   subtitle: string;
   features: string[];
   highlighted?: boolean;
@@ -20,23 +18,17 @@ const plans: Record<string, Array<{
   web: [
     {
       name: "Portfolio",
-      price: "KSh 15,000",
-      unit: "",
       subtitle: "Creatives & freelancers",
       features: ["1–3 pages", "Mobile responsive", "Contact section", "Deployed & live"],
     },
     {
       name: "Business",
-      price: "KSh 20,000",
-      unit: "",
       subtitle: "Growing businesses",
       features: ["4–5 pages", "Polished UI design", "Animations", "Mobile optimized"],
       highlighted: true,
     },
     {
       name: "Brand",
-      price: "KSh 35,000+",
-      unit: "",
       subtitle: "Full brand presence",
       features: ["Custom UI design", "Product showcase", "Contact/inquiry system", "Fully responsive"],
     },
@@ -44,23 +36,17 @@ const plans: Record<string, Array<{
   social: [
     {
       name: "Starter",
-      price: "KSh 2,000",
-      unit: "/project",
       subtitle: "Quick promos",
       features: ["1 poster design", "1 revision", "PNG/JPG export"],
     },
     {
       name: "Growth",
-      price: "KSh 4,000",
-      unit: "/project",
       subtitle: "Brand launches",
       features: ["3 social media posters", "Instagram-optimized sizes", "Brand color consistency", "3 revisions"],
       highlighted: true,
     },
     {
       name: "Brand Promo",
-      price: "KSh 7,000",
-      unit: "/project",
       subtitle: "Product drops",
       features: ["5 social media posts", "1 story design", "1 promo banner", "4 revisions"],
     },
@@ -68,23 +54,17 @@ const plans: Record<string, Array<{
   ads: [
     {
       name: "Social Ads",
-      price: "KSh 3,500",
-      unit: "/set",
       subtitle: "Facebook & Instagram",
       features: ["3 ad creatives", "Feed + story sizes", "CTA-optimized layouts", "2 revisions"],
     },
     {
       name: "Print Flyers",
-      price: "KSh 2,500",
-      unit: "/design",
       subtitle: "Events & promos",
       features: ["A4/A5 flyer design", "Print-ready file (300dpi)", "Digital version included", "2 revisions"],
       highlighted: true,
     },
     {
       name: "WhatsApp Marketing",
-      price: "KSh 2,000",
-      unit: "/set",
       subtitle: "Broadcast-ready visuals",
       features: ["3 WhatsApp-sized graphics", "Promo text layout", "PNG export", "1 revision"],
     },
@@ -92,23 +72,17 @@ const plans: Record<string, Array<{
   retainer: [
     {
       name: "Weekly Basic",
-      price: "KSh 2,500",
-      unit: "/week",
       subtitle: "Small brands staying active",
       features: ["2 posts per week", "1 story design", "Quick edits"],
     },
     {
       name: "Monthly",
-      price: "KSh 8,000",
-      unit: "/month",
       subtitle: "Consistent content every month",
       features: ["8 posts/month", "4 story designs", "2 ad creatives", "Quick edits included", "Priority turnaround"],
       highlighted: true,
     },
     {
       name: "Weekly Pro",
-      price: "KSh 4,500",
-      unit: "/week",
       subtitle: "Active brands needing more",
       features: ["4 posts per week", "2 story designs", "1 ad creative", "Priority delivery"],
     },
@@ -128,9 +102,9 @@ const PricingSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="text-sm font-mono uppercase tracking-[0.3em] text-primary mb-3">Investment</p>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Simple, transparent pricing</h2>
-          <p className="text-muted-foreground mb-8">All prices in KSh · Final pricing depends on project scope</p>
+          <p className="text-sm font-mono uppercase tracking-[0.3em] text-primary mb-3">Packages</p>
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">What's included</h2>
+          <p className="text-muted-foreground mb-8">Pricing is tailored to your project — reach out and let's talk</p>
 
           <div className="flex flex-wrap justify-center gap-2">
             {categories.map((cat) => (
@@ -165,12 +139,7 @@ const PricingSection = () => {
                 </div>
               )}
               <h3 className="font-display text-lg font-semibold mb-1">{plan.name}</h3>
-              <p className="text-xs text-muted-foreground mb-4">{plan.subtitle}</p>
-              <p className="text-3xl font-display font-bold gradient-text-primary mb-1">
-                {plan.price}
-              </p>
-              {plan.unit && <p className="text-xs text-muted-foreground mb-6">{plan.unit}</p>}
-              {!plan.unit && <div className="mb-6" />}
+              <p className="text-xs text-muted-foreground mb-6">{plan.subtitle}</p>
               <ul className="space-y-3 mb-8">
                 {plan.features.map((f) => (
                   <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground">
