@@ -26,7 +26,7 @@ const socials = [
   { path: siTelegram.path, href: "https://t.me/ybl3nn", label: "Telegram" },
   { path: siX.path, href: "https://x.com/KimanthiLenny", label: "X" },
   { path: siGithub.path, href: "https://github.com/Huncho-lenny", label: "GitHub" },
-  { path: linkedInPath, href: "https://www.linkedin.com/in/Huncho-lenny", label: "LinkedIn" },
+  { path: linkedInPath, href: "https://www.linkedin.com/in/lenny-kimanthi-00085239b", label: "LinkedIn" },
 ];
 
 const SocialIcon = ({ path }: { path: string }) => (
