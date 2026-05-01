@@ -1,34 +1,34 @@
 import { motion } from "framer-motion";
-import projectNova from "@/assets/project-nova.jpg";
-import projectAether from "@/assets/project-aether.jpg";
-import projectPulse from "@/assets/project-pulse.jpg";
-import projectCipher from "@/assets/project-cipher.jpg";
 import { Badge } from "@/components/ui/badge";
 
 const projects = [
   {
-    title: "Nova Dashboard",
-    description: "Real-time analytics platform with immersive data visualizations",
-    tech: ["React", "Three.js", "D3"],
-    image: projectNova,
+    title: "Cocktail Finder",
+    description: "A sleek cocktail discovery app that lets users search and explore drinks by ingredient, name or category with a clean responsive UI.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    status: null,
+    image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800&q=80&fit=crop",
   },
   {
-    title: "Aether Commerce",
-    description: "Next-gen e-commerce experience with AR product previews",
-    tech: ["Next.js", "Stripe", "WebGL"],
-    image: projectAether,
+    title: "Mealy",
+    description: "Full-stack food ordering platform with menu browsing, cart management and order flow — built with Flask on the backend and React on the front.",
+    tech: ["React", "Flask", "JavaScript", "Python"],
+    status: null,
+    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80&fit=crop",
   },
   {
-    title: "Pulse Social",
-    description: "Community platform with real-time messaging and content creation",
-    tech: ["React", "WebSocket", "PostgreSQL"],
-    image: projectPulse,
+    title: "Taste Town",
+    description: "A restaurant discovery and food delivery web app with location-based filtering, dynamic menus and a smooth ordering experience.",
+    tech: ["JavaScript", "React", "CSS"],
+    status: null,
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&fit=crop",
   },
   {
-    title: "Cipher Security",
-    description: "Cybersecurity dashboard with threat detection and monitoring",
-    tech: ["TypeScript", "Node.js", "Redis"],
-    image: projectCipher,
+    title: "Social Vault",
+    description: "A social media content management platform for scheduling, storing and analysing posts across multiple channels from one dashboard.",
+    tech: ["React", "TypeScript", "Node.js"],
+    status: "In Progress",
+    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=80&fit=crop",
   },
 ];
 
@@ -55,23 +55,27 @@ const ProjectsSection = () => (
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
             whileHover={{ scale: 1.02, y: -4 }}
-            className="group glass-card overflow-hidden cursor-pointer"
+            className="group glass-card overflow-hidden cursor-default"
           >
+            {/* Project image */}
             <div className="relative h-48 overflow-hidden">
               <img
                 src={project.image}
                 alt={project.title}
                 loading="lazy"
                 decoding="async"
-                width={800}
-                height={512}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+              {project.status && (
+                <span className="absolute top-3 right-3 text-xs font-mono px-3 py-1 rounded-full bg-accent/20 text-accent border border-accent/30 backdrop-blur-sm">
+                  {project.status}
+                </span>
+              )}
             </div>
             <div className="p-6">
               <h3 className="text-xl font-display font-semibold mb-2">{project.title}</h3>
-              <p className="text-muted-foreground mb-4">{project.description}</p>
+              <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{project.description}</p>
               <div className="flex gap-2 flex-wrap">
                 {project.tech.map((t) => (
                   <Badge key={t}>{t}</Badge>
