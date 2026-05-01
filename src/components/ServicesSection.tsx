@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code2, Palette, Globe, Sparkles } from "lucide-react";
+import { Code2, Palette, Globe, Sparkles, PenTool, Smartphone, Megaphone, Plug } from "lucide-react";
 
 const services = [
   {
@@ -21,6 +21,26 @@ const services = [
     icon: Sparkles,
     title: "Creative Dev",
     description: "Interactive experiences, animations, and experimental interfaces that push boundaries.",
+  },
+  {
+    icon: PenTool,
+    title: "Graphic Design",
+    description: "Striking visuals, print-ready assets, and brand collateral that make a lasting impression across every medium.",
+  },
+  {
+    icon: Smartphone,
+    title: "App Development",
+    description: "Cross-platform mobile applications built for performance, usability, and seamless user experiences.",
+  },
+  {
+    icon: Megaphone,
+    title: "Social Media Marketing",
+    description: "Strategic content creation and campaign management that grows your audience and drives real engagement.",
+  },
+  {
+    icon: Plug,
+    title: "API Development",
+    description: "Robust, scalable APIs that power your products — from REST to webhooks, built with security and speed in mind.",
   },
 ];
 
