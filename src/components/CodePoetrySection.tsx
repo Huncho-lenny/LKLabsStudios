@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const codeLines = [
-  { text: "const dream = async () => {", color: "text-secondary" },
+  { text: "const dream = async () => {", color: "text-primary" },
   { text: '  const vision = await imagine("impossible");', color: "text-foreground" },
   { text: "  const design = craft(vision, passion);", color: "text-foreground" },
   { text: "  const code = transform(design, precision);", color: "text-foreground" },
@@ -11,7 +11,7 @@ const codeLines = [
   { text: '    impact: "unforgettable",', color: "text-primary" },
   { text: "    beauty: Infinity,", color: "text-primary" },
   { text: "  });", color: "text-accent" },
-  { text: "};", color: "text-secondary" },
+  { text: "};", color: "text-primary" },
 ];
 
 const CodePoetrySection = () => (

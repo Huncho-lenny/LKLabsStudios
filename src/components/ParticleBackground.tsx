@@ -28,12 +28,16 @@ const ParticleBackground = memo(() => {
         vx: (Math.random() - 0.5) * 0.3,
         vy: (Math.random() - 0.5) * 0.3,
         size: Math.random() * 2 + 0.5,
-        opacity: Math.random() * 0.5 + 0.1,
+        opacity: Math.random() * 0.4 + 0.08,
         color: colors[Math.floor(Math.random() * colors.length)],
       });
     }
 
     const animate = () => {
+      const isLight = document.documentElement.classList.contains("light");
+      const opacityScale = isLight ? 0.4 : 1;
+      const lineOpacityScale = isLight ? 0.3 : 1;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach((p) => {
         p.x += p.vx;
@@ -43,17 +47,15 @@ const ParticleBackground = memo(() => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `${p.color}${p.opacity})`;
+        ctx.fillStyle = `${p.color}${p.opacity * opacityScale})`;
         ctx.fill();
 
-        // Glow
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size * 4, 0, Math.PI * 2);
-        ctx.fillStyle = `${p.color}${p.opacity * 0.15})`;
+        ctx.fillStyle = `${p.color}${p.opacity * 0.15 * opacityScale})`;
         ctx.fill();
       });
 
-      // Draw connections
       particles.forEach((a, i) => {
         particles.slice(i + 1).forEach((b) => {
           const dist = Math.hypot(a.x - b.x, a.y - b.y);
@@ -61,7 +63,7 @@ const ParticleBackground = memo(() => {
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(155,93,229,${0.08 * (1 - dist / 150)})`;
+            ctx.strokeStyle = `rgba(155,93,229,${0.08 * lineOpacityScale * (1 - dist / 150)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
