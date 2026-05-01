@@ -34,9 +34,9 @@ const AboutSection = () => (
           className="glass-card p-8 space-y-6"
         >
           {[
-            { label: "Projects Delivered", value: "50+" },
-            { label: "Years of Craft", value: "5+" },
-            { label: "Happy Clients", value: "40+" },
+            { label: "Projects Delivered", value: "20+" },
+            { label: "Years of Craft", value: "1+" },
+            { label: "Happy Clients", value: "20+" },
             { label: "Lines of Poetry", value: "∞" },
           ].map((stat) => (
             <div key={stat.label} className="flex items-center justify-between border-b border-border/50 pb-4 last:border-0 last:pb-0">

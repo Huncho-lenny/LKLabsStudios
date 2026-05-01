@@ -1,11 +1,15 @@
 import { motion } from "framer-motion";
 import { Mail, MessageCircle, Loader2 } from "lucide-react";
 import { useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -18,26 +22,28 @@ const ContactSection = () => {
       toast({ title: "Please fill in all fields", variant: "destructive" });
       return;
     }
-    if (!supabase) {
+    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
       toast({
-        title: "Contact form is not configured yet",
-        description: "Add your Supabase environment variables to enable submissions.",
+        title: "Email not configured",
+        description: "Add your EmailJS environment variables to enable submissions.",
         variant: "destructive",
       });
       return;
     }
     setLoading(true);
-    const { error } = await supabase.from("contact_submissions").insert({
-      name: form.name,
-      email: form.email,
-      message: form.message,
-    });
-    setLoading(false);
-    if (error) {
-      toast({ title: "Something went wrong", description: "Please try again later.", variant: "destructive" });
-    } else {
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        { from_name: form.name, from_email: form.email, message: form.message },
+        PUBLIC_KEY,
+      );
       toast({ title: "Message sent!", description: "We'll get back to you soon." });
       setForm({ name: "", email: "", message: "" });
+    } catch {
+      toast({ title: "Something went wrong", description: "Please try again later.", variant: "destructive" });
+    } finally {
+      setLoading(false);
     }
   };
 

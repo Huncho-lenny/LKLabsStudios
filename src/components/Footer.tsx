@@ -40,6 +40,10 @@ export function Footer() {
             <p className="text-muted-foreground leading-relaxed max-w-md">
               Crafting premium digital experiences where code meets creativity.
               We transform ideas into immersive web realities.
+              <br />
+              Building brands, designing experiences, and crafting digital solutions.
+              <br />
+              We are a team of developers, designers, and marketers who are passionate about creating beautiful and functional websites and applications.
             </p>
           </div>
 

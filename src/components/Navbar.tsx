@@ -39,8 +39,11 @@ const Navbar = () => {
         }`}
       >
         <div className="container mx-auto flex items-center justify-between px-6">
-          <a href="#" className="font-display text-xl font-bold gradient-text-primary">
-            LKLabs Studios
+          <a href="#" className="flex items-center gap-3">
+            <span className="font-display text-xl font-bold gradient-text-primary">LKLabs Studios</span>
+            <span className="hidden sm:block text-[9px] font-mono text-muted-foreground tracking-widest uppercase border border-border/50 rounded px-2 py-1 leading-tight">
+              building brands<br />designing experiences
+            </span>
           </a>
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
