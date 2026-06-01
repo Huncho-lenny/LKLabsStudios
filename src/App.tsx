@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Component, type ReactNode } from "react";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
@@ -34,6 +34,12 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { error: Error | 
 
 const queryClient = new QueryClient();
 
+/** Tracks page views on route changes (React Router SPA). */
+const RouteAnalytics = () => {
+  const { pathname } = useLocation();
+  return <Analytics path={pathname} route={pathname} />;
+};
+
 const App = () => (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
@@ -41,12 +47,12 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <RouteAnalytics />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-        <Analytics />
       </TooltipProvider>
     </QueryClientProvider>
   </ErrorBoundary>
